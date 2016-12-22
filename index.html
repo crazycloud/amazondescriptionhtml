@@ -1,49 +1,38 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
-    <script>
-        tinymce.init({
-            selector: '#mytextarea',
-            formats: {
-                bold: {
-                    inline: 'b'
-                }
-            },
-            height: 300,
-            content_css: '//www.tinymce.com/css/codepen.min.css',
-            plugins: [
-                ' paste '
-            ],
-            cleanup: true,
-            forced_root_block: "",
-			force_br_newlines:true,
-            menubar: false,
-            statusbar: false,
-            toolbar: false,
-			valid_elements:'p[*],b[*],strong[*],br[*]',
-            setup: function(ed) {//
-			//console.log();
-			$('strong').each(function() {
-    var $this = $(this);
-    if($this.html().replace(/\s|&nbsp;/g, '').length == 0)
-        $this.remove();
-});
-                ed.on('keyup', function(e) {
-				console.log(ed.getContent());
-                    $("#htmlcontent").text(ed.getContent().replace(/&nbsp;/g, '').replace(/<strong>/g, '<b>').replace(/<\/strong>/g, '</b>').replace('<p><b></b></p>','<br>').replace(/<\/p>/g,"<br>").replace(/<p>/g,""))
-                })
-            }
-        });
-    </script>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+    <!--<script src='https:////cdn.tinymce.com/4/tinymce.min.js'></script>-->
+    <script src='js/tinymce.min.js'></script>
+    <script src='js/main.js'></script>
 </head>
 
 <body>
-    <textarea id="mytextarea">Hello, World!</textarea>
-    <div id="htmlcontent"></div>
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+                <h1 class="text-center">Generate HTML of Amazon Product Description</h1>
+    </div>
+    </div>
+        <div class="row header">
+            <div class="col-md-6">
+                <textarea id="mytextarea"></textarea>
+                <button onclick="copyToClipboard('#htmlcontent')">Copy HTML</button>
+            </div>
+            <div class="col-md-6">
+                
+                <div id="htmlcontent"></div>
+            </div>
+        </div>
+    </div>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
-    <script>
-    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 
 </html>
