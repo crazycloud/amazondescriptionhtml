@@ -8,15 +8,14 @@
      height: 200,
     // content_css: 'https://www.tinymce.com/css/codepen.min.css',
      plugins: [
-         ' paste '
+         ' paste ','powerpaste'
      ],
      cleanup: true,
      forced_root_block: "",
-     force_br_newlines: true,
      menubar: false,
      statusbar: false,
      toolbar: false,
-     valid_elements: 'p[*],b[*],strong[*],br[*]',
+     valid_elements: 'p,b,strong,br,ul,li',
      setup: function(ed) { //
          //console.log();
          $('strong').each(function() {
@@ -26,7 +25,8 @@
          });
          ed.on('keyup', function(e) {
              console.log(ed.getContent());
-             $("#htmlcontent").text(ed.getContent().replace(/&nbsp;/g, '').replace(/<strong>/g, '<b>').replace(/<\/strong>/g, '</b>').replace('<p><b></b></p>', '<br>').replace(/<\/p>/g, "<br>").replace(/<p>/g, ""))
+             $("#htmlcontent").text(ed.getContent().replace(/&nbsp;/g, '').replace(/<strong>/g, '<b>').replace(/<\/strong>/g, '</b>').replace(/<li>(.*?)<\/li>/ig, "<p>- $1</p>").replace(/<p>(.*?)<\/p>/ig, "$1 <br>")
+                )
          })
      }
  });
