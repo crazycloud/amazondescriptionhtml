@@ -8,7 +8,7 @@
      height: 200,
     // content_css: 'https://www.tinymce.com/css/codepen.min.css',
      plugins: [
-         ' paste ','powerpaste'
+         ' paste '
      ],
      cleanup: true,
      forced_root_block: "",
@@ -25,7 +25,13 @@
          });
          ed.on('keyup', function(e) {
              console.log(ed.getContent());
-             $("#htmlcontent").text(ed.getContent().replace(/&nbsp;/g, '').replace(/<strong>/g, '<b>').replace(/<\/strong>/g, '</b>').replace(/<li>(.*?)<\/li>/ig, "<p>- $1</p>").replace(/<p>(.*?)<\/p>/ig, "$1 <br>")
+             $("#htmlcontent").text(ed.getContent().replace(/&nbsp;/g, '').replace(/<strong>/g, '<b>').replace(/<\/strong>/g, '</b>').replace(/<li>(.*?)<\/li>/ig, "<p>- $1</p>").replace(/<ul>/ig,"").replace(/<\/ul>/ig,"").replace(/<p><\/p>/ig, "<br/>")
+                )
+         })
+
+           ed.on('paste', function(e) {
+             console.log(ed.getContent());
+             $("#htmlcontent").text(ed.getContent().replace(/&nbsp;/g, '').replace(/<strong>/g, '<b>').replace(/<\/strong>/g, '</b>').replace(/<li>(.*?)<\/li>/ig, "<p>- $1</p>").replace(/<ul>/ig,"").replace(/<\/ul>/ig,"").replace(/<p><\/p>/ig, "<br/>")
                 )
          })
      }
