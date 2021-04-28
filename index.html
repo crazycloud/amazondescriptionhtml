@@ -31,7 +31,7 @@
 });
                 ed.on('keyup', function(e) {
 				console.log(ed.getContent());
-                    $("#htmlcontent").text(ed.getContent().replace(/&nbsp;/g, '').replace(/<strong>/g, '<b>').replace(/<\/strong>/g, '</b>').replace('<p><b></b></p>','<br>').replace(/<\/p>/g,"<br>").replace(/<p>/g,""))
+                    $("#htmlcontent").text(ed.getContent().replace(/&nbsp;/g, '').replace(/<strong>/g, '<b>').replace(/<\/strong>/g, '</b>').replace('<p><b></b></p>','<br>').replace(/<\/p>/g,"<br><br>").replace(/<p>/g,""))
                 })
             }
         });
