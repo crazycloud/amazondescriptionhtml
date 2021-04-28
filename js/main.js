@@ -25,7 +25,10 @@
          });
          ed.on('keyup', function(e) {
              console.log(ed.getContent());
-             $("#htmlcontent").text(ed.getContent().replace(/&nbsp;/g, '').replace(/<strong>/g, '<b>').replace(/<\/strong>/g, '</b>').replace(/<li>(.*?)<\/li>/ig, "<p>- $1</p>").replace(/<ul>/ig,"").replace(/<\/ul>/ig,"").replace(/<p><\/p>/ig, "<br>").replace(/<p>(.*?)<\/p>/ig, "$1<br><br>").replace(/\&amp;/g, "&").replace(/\&gt;/g, ">").replace(/\&lt;/g, "<").replace(/\&rsquo;/g, "'")
+              var convertedContent = ed.getContent().replace(/&nbsp;/g, '').replace(/<strong>/g, '<b>').replace(/<\/strong>/g, '</b>').replace(/<li>(.*?)<\/li>/ig, "<p>- $1</p>").replace(/<ul>/ig,"").replace(/<\/ul>/ig,"").replace(/<p><\/p>/ig, "<br>").replace(/<p>(.*?)<\/p>/ig, "$1<br><br>").replace(/\&amp;/g, "&").replace(/\&gt;/g, ">").replace(/\&lt;/g, "<").replace(/\&rsquo;/g, "'"
+             $("#htmlcontent").text(convertedContent)
+              $('#open_ender_output').append(convertedContent);
+
                 )
          })
 
