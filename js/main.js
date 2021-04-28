@@ -27,7 +27,6 @@
              console.log(ed.getContent());
               var convertedContent = ed.getContent().replace(/&nbsp;/g, '').replace(/<strong>/g, '<b>').replace(/<\/strong>/g, '</b>').replace(/<li>(.*?)<\/li>/ig, "<p>- $1</p>").replace(/<ul>/ig,"").replace(/<\/ul>/ig,"").replace(/<p><\/p>/ig, "<br>").replace(/<p>(.*?)<\/p>/ig, "$1<br><br>").replace(/\&amp;/g, "&").replace(/\&gt;/g, ">").replace(/\&lt;/g, "<").replace(/\&rsquo;/g, "'")
              $("#htmlcontent").text(convertedContent)
-              $('#open_ender_output').append(convertedContent);
 
          })
 
@@ -45,4 +44,5 @@
   $temp.val($(element).text()).select();
   document.execCommand("copy");
   $temp.remove();
+  $('#open_ender_output').append($("#htmlcontent"));
 };
