@@ -29,7 +29,6 @@
              $("#htmlcontent").text(convertedContent)
               $('#open_ender_output').append(convertedContent);
 
-                )
          })
 
            ed.on('paste', function(e) {
